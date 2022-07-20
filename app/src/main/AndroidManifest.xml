@@ -40,7 +40,7 @@
             android:name=".ActivityB"
             android:exported="false"
             android:launchMode="singleTop"
-            android:taskAffinity="something"
+            android:taskAffinity="com.some.som"
            />
         <activity
             android:name=".ActivityA"
