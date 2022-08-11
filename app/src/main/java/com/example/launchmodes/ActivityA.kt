@@ -56,15 +56,25 @@ open class ActivityA : MainActivity(){
         Log.e(TAG,"onStop() ${this::class.java}" )
     }
 
-    fun startNewActivityA(view: View){
-        val intent = Intent(applicationContext, ActivityA::class.java)//.apply { flags = intentInUse }
-        startActivity(intent)
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        Log.e(TAG,"onNewIntent called for  ${this::class.java}" )
     }
+    fun startNewActivityA(view: View){
+        val intent = Intent(applicationContext, ActivityA::class.java)
+            startActivity(intent)
+        }
+
     fun startNewActivityB(view: View){
-        startActivity(Intent(applicationContext, ActivityB::class.java))//.apply { flags = intentInUse })
+        startActivity(Intent(applicationContext, ActivityB::class.java).apply {
+
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+           // addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        )
     }
     fun startNewActivityC(view: View){
-        startActivity(Intent(applicationContext, ActivityC::class.java))//.apply { flags = intentInUse })
+        startActivity(Intent(applicationContext, ActivityC::class.java).apply { setAction("string1") })
     }
     fun startNewActivityD(view: View){
         startActivity(Intent(applicationContext, ActivityD::class.java))//.apply { flags = intentInUse })

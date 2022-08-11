@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 open class MainActivity : AppCompatActivity() {
-    protected var activityManager: ActivityManager? = null
+    private var activityManager: ActivityManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
